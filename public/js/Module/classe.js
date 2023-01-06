@@ -37,7 +37,7 @@ class Mage {
 
         attack() {
             if (this.mana < 2) {
-            console.log(`${this.name} n'a plus assez de mana pour attaquer, il passe son tour et récupère 7 points de mana.`);
+            console.log(`${this.name} n'a plus assez de mana pour attaquer il passe son tour et récupère 7 points de mana.`);
             this.mana += 7;
             } else {
               this.health -= 0.75 * this.attack;
