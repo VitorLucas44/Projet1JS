@@ -1,10 +1,10 @@
 
 // Classe pour le guerrier
-class Warrior {
+export class Warrior {
     constructor(name) {
     this.name = name;
     this.health = 100;
-    this.attack = 20;
+    this.attack = 300;
     this.rage = 0;
     }
 
@@ -27,16 +27,16 @@ class Warrior {
 }
 
   // Classe pour le mage
-class Mage {
+  export class Mage {
     constructor(name) {
     this.name = name;
     this.health = 80;
-    this.attack = 30;
+    this.attack = 300;
       this.mana = Math.floor(Math.random() * 3) + 7;
     }
 
-        attack() {
-            if (this.mana < 2) {
+    attack() {
+        if (this.mana < 2) {
             console.log(`${this.name} n'a plus assez de mana pour attaquer il passe son tour et récupère 7 points de mana.`);
             this.mana += 7;
             } else {
@@ -53,11 +53,11 @@ class Mage {
 }
         
         // Classe pour l'archer
-    class Archer {
+        export   class Archer {
         constructor(name) {
             this.name = name;
             this.health = 90;
-            this.attack = 25;
+            this.attack = 255;
             this.arrows = Math.floor(Math.random() * 5) + 7;
         }
         
