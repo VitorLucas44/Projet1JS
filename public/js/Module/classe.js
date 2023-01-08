@@ -4,7 +4,7 @@ export class Warrior {
     constructor(name) {
     this.name = name;
     this.health = 100;
-    this.attack = 300;
+    this.attaque= 40;
     this.rage = 0;
     }
 
@@ -12,11 +12,11 @@ export class Warrior {
       this.health -= 0.75 * this.attack;
     this.rage++;
     if (this.rage >= 4) {
-        this.attack *= 1.25;
+        this.attaque *= 1.25;
         this.rage = 0;
         console.log(`${this.name} a atteint 4 points de rage et gagne un bonus d'attaque de 25% pour 1 tour !`);
     } else {
-        this.attack *= 1.4;
+        this.attaque *= 1.4;
     }
 }
 
@@ -31,7 +31,7 @@ export class Warrior {
     constructor(name) {
     this.name = name;
     this.health = 80;
-    this.attack = 300;
+    this.attaque = 80;
       this.mana = Math.floor(Math.random() * 3) + 7;
     }
 
@@ -52,12 +52,12 @@ export class Warrior {
         }
 }
         
-        // Classe pour l'archer
+ // Classe pour l'archer
         export   class Archer {
         constructor(name) {
             this.name = name;
             this.health = 90;
-            this.attack = 255;
+            this.attaque = 60;
             this.arrows = Math.floor(Math.random() * 5) + 7;
         }
         

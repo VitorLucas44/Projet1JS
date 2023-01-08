@@ -1,3 +1,4 @@
+// classe du boss
 export class Boss {
     constructor(name, health, attack) {
     this.name = name;
