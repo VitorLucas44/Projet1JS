@@ -5,9 +5,9 @@ import {Archer} from './classe.js';
 
  // Liste des boss disponibles
 const bosses = [
-    new Boss("Sauron", 200, 30),
-    new Boss("Chronos", 200, 25),
-    new Boss("Lilith", 200, 20)
+    new Boss("Sauron", 150, 1),
+    new Boss("Chronos", 150, 1),
+    new Boss("Lilith", 150, 1)
     ];
 
  // Liste des héros disponibles
@@ -22,6 +22,7 @@ const heroes = [
 function playGame() {
  // Choisir aléatoirement un boss parmi ceux disponibles
     const boss = bosses[Math.floor(Math.random() * bosses.length)];
+    console.log(`Le boss apparait`)
           
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
     const hero = selectHero();
@@ -33,7 +34,9 @@ const action = selectAction();
 // Appliquer l'action choisie par l'utilisateur et faire subir des dégâts au boss ou au héros
               if (action === "attack") {
                 hero.attack();
-                boss.health -= hero.attack;
+                boss.health -= hero.attaque;
+                // console.log(hero.attack)
+                // console.log(boss.health)
               } else if (action === "defend") {
                 hero.defend();
                 boss.attack *= 0.5;
@@ -49,13 +52,18 @@ const action = selectAction();
                 }
               }
 // Faire attaquer le boss par défaut s'il n'a pas posé d'énigme ou si l'utilisateur n'a pas réussi à la résoudre
+              console.log(`Vous avez ${hero.health} hp`)
               hero.health -= boss.attack;
+              console.log(`Il reste au boss ${boss.health} hp`)
+              // console.log(`${boss.attack} l'attaque du boss`)
             }
 // Afficher un message de victoire ou de défaite et quitter la boucle de combat
             if (hero.health <= 0) {
               console.log("Vous avez été vaincu par le boss.");
             } else {
-              console.log("Vous avez vaincu le boss !");
+              if (boss.health <= 0){
+                  console.log("Vous avez vaincu le boss !");
+              }
             }
           }
           

@@ -4,12 +4,12 @@ export class Warrior {
     constructor(name) {
     this.name = name;
     this.health = 100;
-    this.attaque= 40;
+    this.attaque= 30;
     this.rage = 0;
     }
 
     attack() {
-      this.health -= 0.75 * this.attack;
+      this.health -= 0.75 * this.attaque;
     this.rage++;
     if (this.rage >= 4) {
         this.attaque *= 1.25;
@@ -22,7 +22,7 @@ export class Warrior {
 
     defend() {
       this.health *= 2.5;
-      this.attack *= 0.5;
+      this.attaque *= 0.5;
     }
 }
 
@@ -40,15 +40,15 @@ export class Warrior {
             console.log(`${this.name} n'a plus assez de mana pour attaquer il passe son tour et récupère 7 points de mana.`);
             this.mana += 7;
             } else {
-              this.health -= 0.75 * this.attack;
-              this.attack *= 1.4;
+              this.health -= 0.75 * this.attaque;
+              this.attaque *= 1.4;
             this.mana -= 2;
             }
         }
         
         defend() {
             this.health *= 2.5;
-            this.attack *= 0.5;
+            this.attaque *= 0.5;
         }
 }
         
@@ -66,14 +66,14 @@ export class Warrior {
             console.log(`${this.name} n'a plus de flèches, il passe son tour et récupère 6 flèches.`);
             this.arrows += 6;
             } else {
-              this.health -= 0.75 * this.attack;
-              this.attack *= 1.4;
+              this.health -= 0.75 * this.attaque;
+              this.attaque *= 1.4;
             this.arrows -= 2;
             }
         }
         
         defend() {
             this.health *= 2.5;
-            this.attack *= 0.5;
+            this.attaque *= 0.5;
         }
 }
