@@ -2,6 +2,7 @@ import {Boss} from './boss.js';
 import {Warrior} from './classe.js';
 import {Mage} from './classe.js';
 import {Archer} from './classe.js';
+// import {enigmes} from './enigmes';
 
  // Liste des boss disponibles
 const bosses = [
@@ -18,12 +19,19 @@ const heroes = [
     ];
 
 
+
 // Fonction pour lancer le jeu
 function playGame() {
  // Choisir aléatoirement un boss parmi ceux disponibles
     const boss = bosses[Math.floor(Math.random() * bosses.length)];
     console.log(`Le BOSS ${boss.name} apparait`)
-          
+      
+    const puzzles = [
+      ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis ? "),
+      ("On peut me trouver au milieu d’un court de tennis ? "),
+      ("On peut me trouver au fond des cages d'un terrain de foot ? "),
+    ]
+
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
     const hero = selectHero();
 // Lancer la boucle de combat
@@ -44,7 +52,7 @@ const action = selectAction();
 // Si le boss a moins de 20% de points de vie poser une énigme à l'utilisateur
               if (boss.health <= boss.health * 0.2) {
                 const puzzle = selectPuzzle();
-                if (solvePuzzle(puzzle)) {
+                if (solvePuzzle(puzzles)) {
                   console.log("Vous avez résolu l'énigme et vaincu le boss !");
                   break;
                 } else {
@@ -91,17 +99,18 @@ const action = selectAction();
       }
           
 // Fonction pour choisir aléatoirement une énigme parmi celles disponibles
-      function selectPuzzle() {
+      function selectPuzzle(indice) {
           const puzzles = [
             ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis ? "),
             ("On peut me trouver au milieu d’un court de tennis ? "),
             ("On peut me trouver au fond des cages d'un terrain de foot ? "),
           ]
-            return puzzles
+            return puzzles[indice]
         }
 
 // Fonction pour demander à l'utilisateur de faire l'énigme
 function solvePuzzle(puzzle) {
+  console.log(Math.floor(Math.random() * puzzle.length))
     console.log(`Vous devez résoudre l'énigme suivante : ${selectPuzzle([Math.floor(Math.random() * puzzle.length)])}`);
     let attempts = 3;
     while (attempts > 0) {
