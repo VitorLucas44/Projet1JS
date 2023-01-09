@@ -4,30 +4,31 @@ import {Mage} from './classe.js';
 import {Archer} from './classe.js';
 // import {enigmes} from './enigmes';
 
- // Liste des boss disponibles
+// Liste des boss disponibles
 const bosses = [
     new Boss("Sauron", 150, 1),
     new Boss("Chronos", 150, 1),
     new Boss("Lilith", 150, 1)
     ];
 
- // Liste des héros disponibles
+// Liste des héros disponibles
 const heroes = [
-    new Warrior("Conan(Warrior)"),
-    new Mage("Gandalf(Mage)"),
-    new Archer("Legolas(Archer)")
+    new Warrior("Conan(Warrior 110 HP, 30 ATK)"),
+    new Mage("Gandalf(Mage 80 HP, 40 ATK)"),
+    new Archer("Legolas(Archer 90 HP, 35 ATK)")
     ];
 
 
 
 // Fonction pour lancer le jeu
 function playGame() {
- // Choisir aléatoirement un boss parmi ceux disponibles
+// Choisir aléatoirement un boss parmi ceux disponibles
+    console.log(alert`Vous entrez dans le Donjon`)
     const boss = bosses[Math.floor(Math.random() * bosses.length)];
-    console.log(`Le BOSS ${boss.name} apparait`)
+    console.log(`Le BOSS ${boss.name} (${boss.health}hp) apparait`)
       
     const puzzles = [
-      ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis ? "),
+      ("On peut me trouver au fond d’un bateau de pêche ? "),
       ("On peut me trouver au milieu d’un court de tennis ? "),
       ("On peut me trouver au fond des cages d'un terrain de foot ? "),
     ]
@@ -67,10 +68,10 @@ const action = selectAction();
             }
 // Afficher un message de victoire ou de défaite et quitter la boucle de combat
             if (hero.health <= 0) {
-              console.log("Vous avez été vaincu par le boss.");
+              console.log(alert`Vous avez été vaincu par le boss.`);
             } else {
               if (boss.health <= 0){
-                  console.log("Vous avez vaincu le boss !");
+                  console.log(alert`Vous avez vaincu le boss !`);
               }
             }
           }
@@ -101,7 +102,7 @@ const action = selectAction();
 // Fonction pour choisir aléatoirement une énigme parmi celles disponibles
       function selectPuzzle(indice) {
           const puzzles = [
-            ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis ? "),
+            ("On peut me trouver au fond d’un bateau de pêche ? "),
             ("On peut me trouver au milieu d’un court de tennis ? "),
             ("On peut me trouver au fond des cages d'un terrain de foot ? "),
           ]
@@ -125,6 +126,5 @@ function solvePuzzle(puzzle) {
     return false;
 }
   
-  // Lancer le jeu
+// Lancer le jeu
   playGame();
-    

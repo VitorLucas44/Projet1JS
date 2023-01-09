@@ -3,7 +3,7 @@
 export class Warrior {
     constructor(name) {
     this.name = name;
-    this.health = 100;
+    this.health = 110;
     this.attaque= 30;
     this.rage = 0;
     }
@@ -14,7 +14,7 @@ export class Warrior {
     if (this.rage >= 4) {
         this.attaque *= 1.25;
         this.rage = 0;
-        console.log(`${this.name} a atteint 4 points de rage et gagne un bonus d'attaque de 25% pour 1 tour !`);
+        console.log(alert`${this.name} Vous avez atteint 4 points de rage et gagne un bonus d'attaque de 25% pour 1 tour !`);
     } else {
         this.attaque *= 1.4;
     }
@@ -31,13 +31,13 @@ export class Warrior {
     constructor(name) {
     this.name = name;
     this.health = 80;
-    this.attaque = 80;
+    this.attaque = 40;
       this.mana = Math.floor(Math.random() * 3) + 7;
     }
 
     attack() {
         if (this.mana < 2) {
-            console.log(`${this.name} n'a plus assez de mana pour attaquer il passe son tour et récupère 7 points de mana.`);
+            console.log(alert`${this.name} Vous n'avez plus assez de mana pour attaquer, vous passez son tour et récupère 7 points de mana.`);
             this.mana += 7;
             } else {
               this.health -= 0.75 * this.attaque;
@@ -57,13 +57,13 @@ export class Warrior {
         constructor(name) {
             this.name = name;
             this.health = 90;
-            this.attaque = 60;
+            this.attaque = 35;
             this.arrows = Math.floor(Math.random() * 5) + 7;
         }
         
         attack() {
             if (this.arrows < 2) {
-            console.log(`${this.name} n'a plus de flèches, il passe son tour et récupère 6 flèches.`);
+            console.log(alert`${this.name} Vous n'avez plus de flèches, vous passez son tour et récupère 6 flèches.`);
             this.arrows += 6;
             } else {
               this.health -= 0.75 * this.attaque;
