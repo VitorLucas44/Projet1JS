@@ -13,9 +13,9 @@ const bosses = [
 
 // Liste des héros disponibles
 const heroes = [
-    new Warrior("Conan(Warrior 110 HP, 30 ATK)"),
-    new Mage("Gandalf(Mage 80 HP, 40 ATK)"),
-    new Archer("Legolas(Archer 90 HP, 35 ATK)")
+    new Warrior("Warrior 110 HP, 30 ATK"),
+    new Mage("Mage 80 HP, 40 ATK"),
+    new Archer("Archer 90 HP, 35 ATK")
     ];
 
 
@@ -26,7 +26,8 @@ function playGame() {
     console.log(alert`Vous entrez dans le Donjon`)
     const boss = bosses[Math.floor(Math.random() * bosses.length)];
     console.log(`Le BOSS ${boss.name} (${boss.health}hp) apparait`)
-      
+    heroes.name = prompt("Entrez le nom de votre Héro :");
+    console.log(`Bienvenue ${heroes.name}`)
     const puzzles = [
       ("On peut me trouver au fond d’un bateau de pêche ? "),
       ("On peut me trouver au milieu d’un court de tennis ? "),
@@ -71,18 +72,18 @@ const action = selectAction();
               console.log(alert`Vous avez été vaincu par le boss.`);
             } else {
               if (boss.health <= 0){
-                  console.log(alert`Vous avez vaincu le boss !`);
+                  console.log=alert(`Bravo ${heroes.name}, vous avez vaincu le boss !`);
               }
             }
           }
           
 // Fonction pour demander à l'utilisateur de choisir un héros
           function selectHero() {
-            console.log("Choisissez votre héros :");
+            console.log("Choisissez votre classes :");
             for (let i = 0; i < heroes.length; i++) {
               console.log(`${i + 1}. ${heroes[i].name}`);
             }
-            const choice = parseInt(prompt("Entrez le numéro de votre choix 1 à 3 pour votre héros :"));
+            const choice = parseInt(prompt("Entrez le numéro de votre choix 1 à 3 pour votre classes :"));
             return heroes[choice - 1];
           }
           
