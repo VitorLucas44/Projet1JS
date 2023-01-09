@@ -12,9 +12,9 @@ const bosses = [
 
  // Liste des héros disponibles
 const heroes = [
-    new Warrior("Conan"),
-    new Mage("Gandalf"),
-    new Archer("Legolas")
+    new Warrior("Conan(Warrior)"),
+    new Mage("Gandalf(Mage)"),
+    new Archer("Legolas(Archer)")
     ];
 
 
@@ -22,7 +22,7 @@ const heroes = [
 function playGame() {
  // Choisir aléatoirement un boss parmi ceux disponibles
     const boss = bosses[Math.floor(Math.random() * bosses.length)];
-    console.log(`Le boss apparait`)
+    console.log(`Le BOSS ${boss.name} apparait`)
           
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
     const hero = selectHero();
@@ -42,7 +42,7 @@ const action = selectAction();
                 boss.attack *= 0.5;
               }
 // Si le boss a moins de 20% de points de vie poser une énigme à l'utilisateur
-              if (boss.health <= boss.maxHealth * 0.2) {
+              if (boss.health <= boss.health * 0.2) {
                 const puzzle = selectPuzzle();
                 if (solvePuzzle(puzzle)) {
                   console.log("Vous avez résolu l'énigme et vaincu le boss !");
@@ -52,9 +52,9 @@ const action = selectAction();
                 }
               }
 // Faire attaquer le boss par défaut s'il n'a pas posé d'énigme ou si l'utilisateur n'a pas réussi à la résoudre
-              console.log(`Vous avez ${hero.health} hp`)
+              console.log(`Le boss à riposter il vous reste ${hero.health} hp`)
               hero.health -= boss.attack;
-              console.log(`Il reste au boss ${boss.health} hp`)
+              console.log(`Et il reste au boss ${boss.health} hp`)
               // console.log(`${boss.attack} l'attaque du boss`)
             }
 // Afficher un message de victoire ou de défaite et quitter la boucle de combat
@@ -93,17 +93,20 @@ const action = selectAction();
 // Fonction pour choisir aléatoirement une énigme parmi celles disponibles
       function selectPuzzle() {
           const puzzles = [
-            "Je suis d'eau, je suis d'air et je suis d'électricité. Qui suis-je ?",
-            "Une fois que l'on blabla"]
+            ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis ? "),
+            ("On peut me trouver au milieu d’un court de tennis ? "),
+            ("On peut me trouver au fond des cages d'un terrain de foot ? "),
+          ]
+            return puzzles
         }
 
 // Fonction pour demander à l'utilisateur de faire l'énigme
 function solvePuzzle(puzzle) {
-    console.log(`Vous devez résoudre l'énigme suivante : "${puzzle}"`);
+    console.log(`Vous devez résoudre l'énigme suivante : ${selectPuzzle([Math.floor(Math.random() * puzzle.length)])}`);
     let attempts = 3;
     while (attempts > 0) {
       const answer = prompt("Entrez votre réponse :");
-      if (answer === "électricité") {
+      if (answer === "filet") {
         return true;
       } else {
         console.log("Mauvaise réponse, essayez encore.");
