@@ -37,7 +37,19 @@ function playGame() {
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
     const hero = selectHero();
 
-    heroes.health = prompt("Combien de points de vie et de points d'attaque souhaitez-vous donner à votre classe ? (max 200) Choisissez d'abord les points de vie");
+     // Demandez à l'utilisateur de définir les points de vie de sa classe
+  while (true) {
+    heroes.health = +prompt("Combien de points de vie souhaitez-vous donner à votre classe ? (max 200)");
+
+    // Vérifiez si la valeur saisie est un entier compris entre 0 et 200
+    if (heroes.health >= 0 && heroes.health <= 200 && Number.isInteger(heroes.health)) {
+      break;
+    }
+
+    // Si la valeur saisie n'est pas valide, demandez à l'utilisateur de saisir une nouvelle valeur
+    alert("Valeur non valide. Veuillez saisir un entier compris entre 0 et 200.");
+  }
+
     heroes.attaque = 200 - heroes.health;
     alert("Vous avez attribué " + heroes.health + " points de vie et " + heroes.attaque + " points d'attaque à votre classe.");
 // Lancer la boucle de combat
