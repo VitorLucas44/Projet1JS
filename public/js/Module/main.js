@@ -6,16 +6,16 @@ import {Archer} from './classe.js';
 
 // Liste des boss disponibles
 const bosses = [
-    new Boss("Sauron", 150, 1),
-    new Boss("Chronos", 150, 1),
-    new Boss("Lilith", 150, 1)
+    new Boss("Sauron", 200, 1),
+    new Boss("Chronos", 200, 1),
+    new Boss("Lilith", 200, 1)
     ];
 
 // Liste des héros disponibles
 const heroes = [
-    new Warrior("Warrior 110 HP, 30 ATK"),
-    new Mage("Mage 80 HP, 40 ATK"),
-    new Archer("Archer 90 HP, 35 ATK")
+    new Warrior("Warrior"),
+    new Mage("Mage"),
+    new Archer("Archer")
     ];
 
 
@@ -36,6 +36,10 @@ function playGame() {
 
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
     const hero = selectHero();
+
+    heroes.health = prompt("Combien de points de vie et de points d'attaque souhaitez-vous donner à votre classe ? (max 200) Choisissez d'abord les points de vie");
+    heroes.attaque = 200 - heroes.health;
+    alert("Vous avez attribué " + heroes.health + " points de vie et " + heroes.attaque + " points d'attaque à votre classe.");
 // Lancer la boucle de combat
     while (hero.health > 0 && boss.health > 0) {
 // Demander à l'utilisateur de choisir une action (attaquer ou défendre) pour son héros
@@ -76,7 +80,6 @@ const action = selectAction();
               }
             }
           }
-          
 // Fonction pour demander à l'utilisateur de choisir un héros
           function selectHero() {
             console.log("Choisissez votre classes :");
