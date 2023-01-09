@@ -6,9 +6,9 @@ import {Archer} from './classe.js';
 
 // Liste des boss disponibles
 const bosses = [
-    new Boss("Sauron", 200, 1),
-    new Boss("Chronos", 200, 1),
-    new Boss("Lilith", 200, 1)
+    new Boss("Sauron", 300, 2),
+    new Boss("Chronos", 350, 1),
+    new Boss("Lilith", 280, 2)
     ];
 
 // Liste des héros disponibles
