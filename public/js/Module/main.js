@@ -128,7 +128,7 @@ const action = selectAction();
 // Fonction pour demander à l'utilisateur de faire l'énigme
 function solvePuzzle(puzzle) {
   console.log(Math.floor(Math.random() * puzzle.length))
-    console.log(`Vous devez résoudre l'énigme suivante : ${selectPuzzle([Math.floor(Math.random() * puzzle.length)])}`);
+    console.log(`Vous devez résoudre l'énigme suivante pour finir le boss: ${selectPuzzle([Math.floor(Math.random() * puzzle.length)])}`);
     let attempts = 3;
     while (attempts > 0) {
       const answer = prompt("Entrez votre réponse :");
