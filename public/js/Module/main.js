@@ -53,7 +53,7 @@ function playGame() {
     heroes.attaque = 200 - heroes.health;
     alert("Vous avez attribué " + heroes.health + " points de vie et " + heroes.attaque + " points d'attaque à votre classe.");
 // Lancer la boucle de combat
-    while (hero.health > 0 && boss.health > 0) {
+    while (heroes.health > 0 && boss.health > 0) {
 // Demander à l'utilisateur de choisir une action (attaquer ou défendre) pour son héros
 const action = selectAction();
     
