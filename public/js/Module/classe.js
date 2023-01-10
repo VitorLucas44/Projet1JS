@@ -3,8 +3,8 @@
 export class Warrior {
     constructor(name) {
     this.name = name;
-    this.health = 110;
-    this.attaque= 30;
+    this.health = 150;
+    this.attaque= 50;
     this.rage = 0;
     }
 
@@ -30,8 +30,8 @@ export class Warrior {
   export class Mage {
     constructor(name) {
     this.name = name;
-    this.health = 80;
-    this.attaque = 40;
+    this.health = 50;
+    this.attaque = 50;
       this.mana = Math.floor(Math.random() * 3) + 7;
     }
 
@@ -56,7 +56,7 @@ export class Warrior {
         export   class Archer {
         constructor(name) {
             this.name = name;
-            this.health = 90;
+            this.health = 170;
             this.attaque = 35;
             this.arrows = Math.floor(Math.random() * 5) + 7;
         }

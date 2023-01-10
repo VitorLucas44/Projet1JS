@@ -6,9 +6,9 @@ import {Archer} from './classe.js';
 
 // Liste des boss disponibles
 const bosses = [
-    new Boss("Sauron", 300, 2),
-    new Boss("Chronos", 350, 1),
-    new Boss("Lilith", 280, 2)
+    new Boss("Sauron", 200, 1),
+    new Boss("Chronos", 230, 1),
+    new Boss("Lilith", 250, 1)
     ];
 
 // Liste des héros disponibles
@@ -29,9 +29,9 @@ function playGame() {
     heroes.name = prompt("Entrez le nom de votre Héro :");
     console.log(`Bienvenue ${heroes.name}`)
     const puzzles = [
-      ("On peut me trouver au fond d’un bateau de pêche ? "),
-      ("On peut me trouver au milieu d’un court de tennis ? "),
-      ("On peut me trouver au fond des cages d'un terrain de foot ? "),
+      ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis. Qui suis-je donc ?"),
+      ("Je ne fais pas de bruit quand je me réveille mais je réveille tout le monde Qui suis je?"),
+      ("Qu’est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd."),
     ]
 
 // Demander à l'utilisateur de choisir un héros parmi ceux disponibles
@@ -53,7 +53,7 @@ function playGame() {
     heroes.attaque = 200 - heroes.health;
     alert("Vous avez attribué " + heroes.health + " points de vie et " + heroes.attaque + " points d'attaque à votre classe.");
 // Lancer la boucle de combat
-    while (heroes.health > 0 && boss.health > 0) {
+    while (hero.health > 0 && boss.health > 0) {
 // Demander à l'utilisateur de choisir une action (attaquer ou défendre) pour son héros
 const action = selectAction();
     
@@ -118,9 +118,9 @@ const action = selectAction();
 // Fonction pour choisir aléatoirement une énigme parmi celles disponibles
       function selectPuzzle(indice) {
           const puzzles = [
-            ("On peut me trouver au fond d’un bateau de pêche ? "),
-            ("On peut me trouver au milieu d’un court de tennis ? "),
-            ("On peut me trouver au fond des cages d'un terrain de foot ? "),
+            ("On peut me trouver au fond d’un bateau de pêche ou au milieu d’un court de tennis. Qui suis-je ?"),
+            ("Je ne fais pas de bruit quand je me réveille mais je réveille tout le monde Qui suis je?"),
+            (" Qu’est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd. "),
           ]
             return puzzles[indice]
         }
@@ -132,13 +132,14 @@ function solvePuzzle(puzzle) {
     let attempts = 3;
     while (attempts > 0) {
       const answer = prompt("Entrez votre réponse :");
-      if (answer === "filet") {
+      if (answer === "filet" || answer === "soleil" || answer === "ombre" ) {
         return true;
       } else {
         console.log("Mauvaise réponse, essayez encore.");
         attempts--;
       }
-  }
+  } 
+    console.log=alert("Vous n'avez pas réussi à résoudre l'énigme, vous etes mort.");
     return false;
 }
   
